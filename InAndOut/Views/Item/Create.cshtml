@@ -1,0 +1,52 @@
+﻿@model InAndOut.Models.Item
+
+@* If We use IEnumerable then nothing will be show in cshtml tag i.e. asp-for since it only gets 
+	single object and IEnumerable us use for getting bulk of variable at a time *@
+
+	<form method="post" asp-action="Create">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group row">
+						<div class="col-4">
+							<label asp-for="ItemName"></label>
+						</div>
+						<div class="col-4">
+							<label asp-for="Borrower"></label>
+						</div>
+						<div class="col-4">
+							<label asp-for="Lender"></label>
+						</div>
+						
+					</div>
+					<div class="form-group row">
+						<div class="col-4">
+							<input asp-for="ItemName" class="form-control" />
+						</div>
+						<div class="col-4">
+							<input asp-for="Borrower" class="form-control" />
+						</div>
+						<div class="col-4">
+							<input asp-for="Lender" class="form-control" />
+						</div>
+						
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
+		<div class="form-group row">
+			<div class="col-8 offset-2 row">
+				<div class="col">
+					<input type="submit" value="Create" class="btn btn-outline-primary w-75">
+				</div>
+				<div class="col">
+					<a class="btn btn-outline-danger w-75" asp-action="Index">Back</a>
+				</div>
+			</div>
+		</div>
+		
+	</form>
+

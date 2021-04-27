@@ -1,6 +1,8 @@
+using InAndOut.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -24,6 +26,10 @@ namespace InAndOut
 		// It is basically DI Container
 		public void ConfigureServices(IServiceCollection services)
 		{
+			services.AddDbContext<ApplicationDbContext>(op =>
+			  op.UseSqlServer(Configuration.GetConnectionString("Key"))
+
+			);
 			services.AddControllersWithViews();
 		}
 
